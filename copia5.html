@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-4V9MG6RZ1S"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-4V9MG6RZ1S');
+</script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Silent Store — Neon V2</title>
+
+  <!-- FONTS -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+
+  <!-- TYPED -->
+  <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+<script src="https://shoppy.gg/api/embed.js"></script>
+  <style>
+    *{margin:0;padding:0;box-sizing:border-box;font-family:'Inter',sans-serif}
+
+    body{
+      background: radial-gradient(circle at 20% 20%, #1a0124, #050008 70%);
+      color:white;
+      overflow-x:hidden;
+    }
+
+    /* NAV */
+    nav{
+      position:fixed;
+      top:0;
+      width:100%;
+      padding:18px 40px;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      backdrop-filter:blur(12px);
+      background:rgba(0,0,0,.35);
+      border-bottom:1px solid rgba(180,0,255,.2);
+      z-index:999;
+    }
+
+    nav h2{
+      font-weight:800;
+      background:linear-gradient(90deg,#c800ff,#6a00ff);
+      -webkit-background-clip:text;
+      -webkit-text-fill-color:transparent;
+      letter-spacing:2px;
+    }
+
+    nav a{
+      color:#ccc;
+      text-decoration:none;
+      margin-left:25px;
+      transition:.3s;
+      font-weight:500;
+    }
+
+    nav a:hover{
+      color:#c800ff;
+      text-shadow:0 0 10px #c800ff;
+    }
+
+    /* HERO */
+    .hero{
+      min-height:100vh;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      padding:120px 10%;
+      position:relative;
+    }
+
+    .hero-text{max-width:600px;}
+
+    .hero h1{
+      font-size:64px;
+      font-weight:800;
+      margin-bottom:20px;
+    }
+
+    .typed{
+      color:#c800ff;
+      text-shadow:0 0 20px #c800ff;
+    }
+
+    .hero p{
+      color:#aaa;
+      line-height:1.6;
+      margin-bottom:30px;
+    }
+
+    .btn{
+      display:inline-block;
+      padding:14px 28px;
+      border-radius:12px;
+      background:linear-gradient(90deg,#c800ff,#6a00ff);
+      color:white;
+      text-decoration:none;
+      font-weight:600;
+      box-shadow:0 0 25px rgba(200,0,255,.6);
+      transition:.3s;
+    }
+
+    .btn:hover{
+      transform:translateY(-3px);
+      box-shadow:0 0 40px rgba(200,0,255,1);
+    }
+
+    .hero img{
+      width:420px;
+      animation:float 6s ease-in-out infinite;
+      filter:drop-shadow(0 0 35px rgba(200,0,255,.6));
+    }
+/* 3D HERO */
+.hero-3d{
+  width:420px;
+  height:420px;
+  min-height:420px;
+  display:block;
+}
+
+spline-viewer{
+  width:100%;
+  height:100%;
+  display:block;
+}
+
+
+
+    @keyframes float{
+      0%,100%{transform:translateY(0)}
+      50%{transform:translateY(-25px)}
+    }
+
+    /* SCROLL */
+    .scroll{
+      position:absolute;
+      bottom:40px;
+      left:50%;
+      transform:translateX(-50%);
+      width:26px;
+      height:45px;
+      border:2px solid #c800ff;
+      border-radius:20px;
+      display:flex;
+      justify-content:center;
+    }
+
+    .scroll::before{
+      content:"";
+      width:6px;
+      height:6px;
+      background:#c800ff;
+      border-radius:50%;
+      margin-top:8px;
+      animation:scroll 2s infinite;
+      box-shadow:0 0 10px #c800ff;
+    }
+
+    @keyframes scroll{
+      0%{opacity:0;transform:translateY(0)}
+      50%{opacity:1}
+      100%{opacity:0;transform:translateY(18px)}
+    }
+
+    /* PRODUCTS */
+    .products{
+      padding:100px 10%;
+    }
+
+    .title{
+      text-align:center;
+      font-size:38px;
+      margin-bottom:60px;
+      background:linear-gradient(90deg,#c800ff,#6a00ff);
+      -webkit-background-clip:text;
+      -webkit-text-fill-color:transparent;
+      font-weight:800;
+    }
+
+    /* CATEGORY FILTER */
+    .category-filter{
+      display:flex;
+      gap:18px;
+      padding:20px;
+      flex-wrap:wrap;
+      justify-content:center;
+    }
+
+    .cat-btn{
+      background:transparent;
+      border:1px solid rgba(180,120,255,0.35);
+      color:white;
+      padding:12px 26px;
+      font-size:14px;
+      letter-spacing:1px;
+      cursor:pointer;
+      border-radius:6px;
+      transition:all .25s ease;
+    }
+
+    .cat-btn:hover{
+      border-color:#b57cff;
+      box-shadow:0 0 12px rgba(181,124,255,.6);
+      transform:translateY(-2px);
+    }
+
+    .cat-btn.active{
+      background:linear-gradient(135deg,#ff2bd6,#b57cff);
+      border:none;
+      color:white;
+      box-shadow:0 0 18px rgba(181,124,255,.9);
+    }
+
+    /* GRID */
+    .grid{
+      display:grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap:30px;
+      align-items:start;
+    }
+
+/* PRODUCT CARD */
+.card{
+  background:rgba(255,255,255,.03);
+  border:1px solid rgba(200,0,255,.2);
+  border-radius:18px;
+  overflow:hidden;
+  transition:.4s;
+  position:relative;
+  display:flex;
+  flex-direction:column;
+
+  /* ❌ ANTES: min-height:450px; (causaba el rectángulo gigante) */
+  /* ✅ AHORA: el card se ajusta solo */
+  height:auto;
+}
+
+
+    .card:hover{
+      transform:translateY(-8px) scale(1.02);
+      box-shadow:0 0 35px rgba(200,0,255,.5);
+    }
+
+    /* 🔥 IMÁGENES AUTO-AJUSTABLES */
+.card .img-box{
+  width:100%;
+  height:200px;          /* Ajustable: puedes cambiar a 180 o 220 */
+  overflow:hidden;
+  border-bottom:1px solid rgba(200,0,255,.2);
+  position:relative;
+}
+
+.card .img-box img{
+  width:100%;
+  height:100%;
+  object-fit:cover;      /* Evita espacios vacíos */
+  object-position:center;
+  transition:transform .45s ease;
+}
+
+.card:hover .img-box img{
+  transform:scale(1.10);
+}
+
+    .card-body{
+      padding:20px;
+      display:flex;
+      flex-direction:column;
+      height:100%;
+    }
+
+    .price{
+      color:#c800ff;
+      font-weight:700;
+      margin:10px 0;
+    }
+
+    .card .btn{
+      margin-top:auto;
+      text-align:center;
+      padding:12px;
+      border-radius:10px;
+      background:linear-gradient(135deg,#ff2bd6,#b57cff);
+      box-shadow:0 0 18px rgba(181,124,255,.6);
+    }
+
+    footer{
+      text-align:center;
+      padding:40px;
+      color:#777;
+      border-top:1px solid rgba(200,0,255,.2);
+      margin-top:60px;
+    }
+  </style>
+</head>
+
+<body>
+<script>
+(function(){if(!window.chatbase||window.chatbase("getState")!=="initialized"){window.chatbase=(...arguments)=>{if(!window.chatbase.q){window.chatbase.q=[]}window.chatbase.q.push(arguments)};window.chatbase=new Proxy(window.chatbase,{get(target,prop){if(prop==="q"){return target.q}return(...args)=>target(prop,...args)}})}const onLoad=function(){const script=document.createElement("script");script.src="https://www.chatbase.co/embed.min.js";script.id="0NV3vL-COfhG0d2e1iw6X";script.domain="www.chatbase.co";document.body.appendChild(script)};if(document.readyState==="complete"){onLoad()}else{window.addEventListener("load",onLoad)}})();
+</script>
+<!-- NAV -->
+<nav>
+  <h2>SILENT STORE</h2>
+  <div>
+    <a href="#">Home</a>
+    <a href="#products">Products</a>
+    <a href="#">Feedback</a>
+    <a href="#">Support</a>
+  </div>
+</nav>
+<spline-viewer 
+  url="https://prod.spline.design/6Wq1Q7YGyM-iab9z/scene.splinecode"
+  style="width:300px;height:300px;">
+</spline-viewer>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-text">
+    <h1><span class="typed" id="typed"></span></h1>
+
+    <p>Your trusted marketplace for premium gaming and streaming accounts.  
+    Instant delivery, secure payments, and the best prices in the market.</p>
+
+    <a class="btn" href="#products">Browse Products</a>
+  </div>
+
+<div class="hero-3d">
+  <spline-viewer 
+    url="https://prod.spline.design/6Wq1Q7YGyM-iab9z/scene.splinecode"
+    background="rgba(0,0,0,0)">
+  </spline-viewer>
+</div>
+
+
+
+
+  <div class="scroll"></div>
+</section>
+
+<!-- PRODUCTS -->
+<section class="products" id="products">
+
+  <div class="title">Featured Products</div>
+
+  <!-- FILTER -->
+  <div class="category-filter">
+    <button class="cat-btn active" data-filter="all">ALL</button>
+    <button class="cat-btn" data-filter="minecraft">MINECRAFT</button>
+    <button class="cat-btn" data-filter="vpn">VPN</button>
+    <button class="cat-btn" data-filter="streaming">STREAMING</button>
+    <button class="cat-btn" data-filter="fortnite">FORTNITE</button>
+  </div>
+
+  <!-- GRID -->
+  <div class="grid">
+
+    <div class="card product-card" data-category="minecraft">
+      <div class="img-box">
+        <img src="IMAGE_HERE">
+      </div>
+      <div class="card-body">
+        <h3>Minecraft Full Access</h3>
+        <div class="price">$5.99</div>
+        <button class="btn" data-shoppy-product="yfsJ2Ma">Purchase</button>
+      </div>
+    </div>
+
+    <div class="card product-card" data-category="minecraft">
+      <div class="img-box">
+        <img src="IMAGE_HERE">
+      </div>
+      <div class="card-body">
+        <h3>Hypixel MVP+ Account</h3>
+        <div class="price">$12.99</div>
+        <a class="btn" href="#">Purchase</a>
+      </div>
+    </div>
+
+    <div class="card product-card" data-category="streaming">
+      <div class="img-box">
+        <img src="IMAGE_HERE">
+      </div>
+      <div class="card-body">
+        <h3>Disney+ Premium</h3>
+        <div class="price">$3.49</div>
+        <a class="btn" href="#">Purchase</a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<footer>
+  © 2026 Silent Store — All rights reserved
+</footer>
+
+<!-- TYPED SCRIPT -->
+<script>
+new Typed("#typed",{
+  strings:[
+    "SILENT STORE",
+    "PREMIUM ACCOUNTS",
+    "INSTANT DELIVERY",
+    "BEST ALT SHOP"
+  ],
+  typeSpeed:70,
+  backSpeed:40,
+  backDelay:1200,
+  loop:true
+});
+</script>
+
+<!-- FILTER SCRIPT -->
+<script>
+const catBtns = document.querySelectorAll('.cat-btn');
+const products = document.querySelectorAll('.product-card');
+
+catBtns.forEach(btn => {
+  btn.addEventListener('click', () => {
+
+    catBtns.forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+
+    const filter = btn.dataset.filter;
+
+    products.forEach(card => {
+      if(filter === "all" || card.dataset.category === filter){
+        card.style.display = "flex";
+      } else {
+        card.style.display = "none";
+      }
+    });
+
+  });
+});
+</script>
+<script src="https://unpkg.com/@splinetool/viewer@1.9.31/build/spline-viewer.js"></script>
+
+</body>
+</html>
